@@ -1,4 +1,13 @@
 <ul class="contact-list">
+
+  {% if site.landing %}
+    <li>{% include icon-arrow-left.html username=site.landing label='landing' %}</li>
+  {% endif %}
+  {% if site.resume %}
+    <li>{% include icon-arrow-right.html username=site.resume label='resume' %}</li>
+  {% endif %}
+
+
   {% if site.email %}
     <li>
       <a href="mailto:{{ site.email }}">
@@ -9,13 +18,10 @@
   {% endif %}
 
   {% if site.github_username %}
-    <li>{% include icon-github.html username=site.github_username label='GitHub' %}</li>
+    <li>{% include icon-github.html username=site.github_username label='github' %}</li>
   {% endif %}
 
-  {% if site.twitter_username %}
-    <li>{% include icon-twitter.html username=site.twitter_username label='Twitter' %}</li>
-  {% endif %}
-
+  
   <li>
     {% if site.plugins contains 'jekyll-feed' or site.gems contains 'jekyll-feed' %}
       <a href="{{ site.feed.path | default: 'feed.xml' | relative_url }}" title="Atom Feed">
